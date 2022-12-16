@@ -10,22 +10,9 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
             integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY="
             crossorigin="anonymous"></script>
+    <script src="res/js/index.js"></script>
 </head>
 <body>
-<script>
-    window.onload = function () {
-        serialTest();
-    }
-    function serialTest() {
-        if ("serial" in navigator) {
-            alert("시리얼 OK");
-            console.log("시리얼 OK");
-        } else {
-            alert("시리얼 Fail");
-            console.log("시리얼 지원 안됨");
-        }
-    }
-</script>
 
 </body>
 </html>
