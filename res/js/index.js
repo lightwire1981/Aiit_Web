@@ -23,8 +23,7 @@ async function serialTest() {
 
 async function writeAiit() {
     const textEncoder = new TextEncoderStream();
-    // const writableStreamClosed = textEncoder.readable.pipeTo(port_num.writable);
-    await textEncoder.readable.pipeTo(port_num.writable);
+    const writableStreamClosed = textEncoder.readable.pipeTo(port_num.writable);
 
     const writer = textEncoder.writable.getWriter();
 
