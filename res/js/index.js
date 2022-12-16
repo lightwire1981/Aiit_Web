@@ -47,11 +47,19 @@ const URL = "https://teachablemachine.withgoogle.com/models/J-gOsDHsq/";
 // const URL = "./my_model/";
 
 let model, webcam, labelContainer, maxPredictions;
+let modelURL, metadataURL
 
 // Load the image model and setup the webcam
 async function init() {
-    const modelURL = URL + "model.json";
-    const metadataURL = URL + "metadata.json";
+    let txtUrl = $("#txtModelUrl");
+    if (txtUrl.val().length > 0) {
+        let user_url = txtUrl.val();
+        modelURL = user_url + "model.json";
+        metadataURL = user_url + "metadata.json";
+    } else {
+        modelURL = URL + "model.json";
+        metadataURL = URL + "metadata.json";
+    }
 
     // load the model and metadata
     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
