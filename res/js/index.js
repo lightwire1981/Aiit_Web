@@ -1,4 +1,7 @@
 let port_num;
+let textEncoder;
+let writableStreamClosed;
+let writer;
 
 $(document).ready(function () {
     $("#btnGetSerial").on('click', serialTest);
@@ -11,7 +14,9 @@ async function serialTest() {
         await navigator.serial.requestPort().then(async (port) => {
             console.log(port);
             port_num = port;
-            await port_num.open({baudRate: 9600});
+            await port_num.open({baudRate: 9600}).then(()=>{
+                readyToWrite();
+            });
         }).catch((e) => {
             console.log(e);
         });
@@ -21,11 +26,13 @@ async function serialTest() {
     }
 }
 
-async function writeAiit() {
-    const textEncoder = new TextEncoderStream();
-    const writableStreamClosed = textEncoder.readable.pipeTo(port_num.writable);
+function readyToWrite() {
+    textEncoder = new TextEncoderStream();
+    writableStreamClosed = textEncoder.readable.pipeTo(port_num.writable);
+    writer = textEncoder.writable.getWriter();
+}
 
-    const writer = textEncoder.writable.getWriter();
+async function writeAiit() {
 
     await writer.write("QAT01");
 }
