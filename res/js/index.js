@@ -6,6 +6,7 @@ let writer;
 $(document).ready(function () {
     $("#btnGetSerial").on('click', serialTest);
     $("#btnSendMsg").on('click', writeAiit);
+    $("#btnTemp").on('click', testFunc);
 });
 async function serialTest() {
 
@@ -21,7 +22,7 @@ async function serialTest() {
             console.log(e);
         });
     } else {
-        alert("시리얼 Fail");
+        alert("시리얼 인식 실패");
         console.log("시리얼 지원 안됨");
     }
 }
@@ -35,4 +36,8 @@ function readyToWrite() {
 async function writeAiit() {
 
     await writer.write("QAT01");
+}
+
+async function testFunc() {
+    await writer.write("predict");
 }
