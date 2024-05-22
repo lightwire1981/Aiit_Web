@@ -1,0 +1,336 @@
+/**
+    Button Setting
+ */
+.BtnMenu {
+    width: 90%;
+    height: 35px;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 20px;
+}
+#btnJoin {
+    margin-right: 2%;
+}
+
+
+/* Button Base */
+button {
+    margin: 10px;
+}
+.CustomBtn {
+    width: 160px;
+    height: 30px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+.WideBtn {
+    width: 80%;
+    height: 40px;
+    font-weight: bold;
+    font-size: medium;
+}
+.MediumBtn {
+    width: 150px;
+    font-weight: bold;
+}
+
+/* Normal btn */
+.BlueAnim {
+    background-color: #899fd8;
+    background-image: linear-gradient(315deg, #899bd8 0%, #0348c8 74%);
+    border: none;
+    z-index: 1;
+}
+.BlueAnim:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: #899fd8;
+    background-image: linear-gradient(315deg, #899bd8 0%, #0348c8 74%);
+    box-shadow:
+            -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+.BlueAnim:hover {
+    color: #fff;
+}
+.BlueAnim:hover:after {
+    top: 0;
+    height: 100%;
+}
+.BlueAnim:active {
+    top: 2px;
+}
+
+.BlueAnim2 {
+    background-color: #899fd8;
+    background-image: linear-gradient(315deg, #899bd8 0%, #0348c8 74%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+.BlueAnim2:hover{
+    background-color: #899fd8;
+    background-image: linear-gradient(315deg, #899bd8 0%, #0348c8 74%);
+}
+.BlueAnim2 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.BlueAnim2:before,
+.BlueAnim2:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
+    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255,255,255,.9),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    transition: all 0.3s ease;
+}
+.BlueAnim2:before {
+    height: 0%;
+    width: .1px;
+}
+.BlueAnim2:after {
+    width: 0%;
+    height: .1px;
+}
+.BlueAnim2:hover:before {
+    height: 100%;
+}
+.BlueAnim2:hover:after {
+    width: 100%;
+}
+.BlueAnim2 span:before,
+.BlueAnim2 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
+    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255,255,255,.9),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    transition: all 0.3s ease;
+}
+.BlueAnim2 span:before {
+    width: .1px;
+    height: 0%;
+}
+.BlueAnim2 span:after {
+    width: 0%;
+    height: .1px;
+}
+.BlueAnim2 span:hover:before {
+    height: 100%;
+}
+.BlueAnim2 span:hover:after {
+    width: 100%;
+}
+
+
+.GreenAnim {
+    background-color: #89d89f;
+    background-image: linear-gradient(315deg, #8ed889 0%, #10c803 74%);
+    border: none;
+    z-index: 1;
+}
+.GreenAnim:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: #89d89f;
+    background-image: linear-gradient(315deg, #8ed889 0%, #10c803 74%);
+    box-shadow:
+            -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+.GreenAnim:hover {
+    color: #fff;
+}
+.GreenAnim:hover:after {
+    top: 0;
+    height: 100%;
+}
+.GreenAnim:active {
+    top: 2px;
+}
+
+
+.PurpleAnim {
+    background-color: #a989d8;
+    background-image: linear-gradient(315deg, #a689d8 0%, #6f03c8 74%);
+    border: none;
+    z-index: 1;
+}
+.PurpleAnim:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: #a989d8;
+    background-image: linear-gradient(315deg, #a689d8 0%, #6f03c8 74%);
+    box-shadow:
+            -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+.PurpleAnim:hover {
+    color: #fff;
+}
+.PurpleAnim:hover:after {
+    top: 0;
+    height: 100%;
+}
+.PurpleAnim:active {
+    top: 2px;
+}
+
+
+/* Normal btn */
+.CancelAnim {
+    background-color: #d88989;
+    background-image: linear-gradient(315deg, #d88989 0%, #c80303 74%);
+    border: none;
+    z-index: 1;
+}
+.CancelAnim:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: #cc4d4d;
+    background-image: linear-gradient(315deg, #cc4d4d 0%, #e49696 74%);
+    box-shadow:
+            -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+.CancelAnim:hover {
+    color: #fff;
+}
+.CancelAnim:hover:after {
+    top: 0;
+    height: 100%;
+}
+.CancelAnim:active {
+    top: 2px;
+}
+
+/* Normal btn */
+.ConfirmAnim {
+    color: #0c4fa6;
+    font-weight: bold;
+    background-color: #e5e5e5;
+    background-image: linear-gradient(315deg, #d8d8d8 0%, #c8c8c8 74%);
+    border: none;
+    z-index: 1;
+}
+.ConfirmAnim:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    background-color: #cccccc;
+    background-image: linear-gradient(315deg, #cccccc 0%, #e4e4e4 74%);
+    box-shadow:
+            -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+.ConfirmAnim:hover {
+    color: #0c4fa6;
+    font-weight: bold;
+}
+.ConfirmAnim:hover:after {
+    top: 0;
+    height: 100%;
+}
+.ConfirmAnim:active {
+    top: 2px;
+}
+
+
+
+/* Button White Style Animation */
+.WhiteAnim {
+    border: none;
+    color: #606086;
+}
+.WhiteAnim:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    box-shadow:
+            -7px -7px 20px 0px #fff9,
+            -4px -4px 5px 0px #fff9,
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+}
+.WhiteAnim:hover {
+    color: #606086;
+}
+.WhiteAnim:hover:after {
+    left: auto;
+    right: 0;
+    width: 100%;
+}
+.WhiteAnim:active {
+    top: 2px;
+}

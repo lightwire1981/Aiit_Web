@@ -1,0 +1,145 @@
+/**
+    Div Setting
+ */
+#divMain {
+    margin: 0 auto 0 50px;
+    text-align: center;
+    /*width: 1900px;*/
+    /*height: 930px;*/
+    width: 95%;
+    height: 950px;
+    background-color: #ffffff
+}
+#divMainTop {
+    height: 98px;
+    width: 100%;
+    /*background-color: rgba(44, 46, 56, 0.74);*/
+    /*background-image: url("../images/main_top.png");*/
+    /*background-size: cover;*/
+    float: top;
+    text-align: left;
+}
+#divMainUser {
+    width: 10%;
+    background-color: rgb(170, 171, 173);
+    text-align: right;
+    vertical-align: middle;
+}
+
+#divMainContents {
+    width: 100%;
+    height: 80%;
+    float: left;
+    background-color: rgba(209, 216, 217, 0.74);
+    /*border: 3px solid #000e1c;*/
+}
+
+#divMainFoot {
+    width: 100%;
+    /*height: 10%;*/
+    display:flex;
+    /*align-items:center;*/
+    float: left;
+    color: #c0c0c0;
+    text-align: left;
+    /*background-color: rgba(20, 22, 24, 0.74);*/
+}
+#divMainFoot p {
+    font-size: medium;
+    flex-grow:1;
+}
+#divMainFoot p + p {
+    /*text-align:right;*/
+    /*margin-right: 10%;*/
+}
+#divFooterContent {
+    float: right;
+    /*text-align: center;*/
+}
+#divFooterLogo {
+    float: right;
+    margin-right: 10%;
+}
+#officeAddr {
+    padding-left: 10px;
+    text-align: left;
+}
+#officeRight {
+    padding-right: 10px;
+    text-align: right;
+}
+
+
+
+input[id="menu_icon"] {
+    display: none;
+}
+input[id="menu_icon"] + label {
+    display: block;
+    width: 35px;
+    height: 22px;
+    position: fixed;
+    left:calc(0% + 10px);
+    top:calc(50% - 10px);
+    transition: all .35s;
+    cursor: pointer;
+}
+input[id="menu_icon"]:checked + label {
+    z-index: 2;
+    left:300px;
+}
+
+input[id="menu_icon"] + label span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 30px;
+    background: #3a3a3a;
+    transition: all .35s;
+}
+
+input[id="menu_icon"] + label span:nth-child(1) {
+    top: 0;
+}
+input[id="menu_icon"] + label span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+input[id="menu_icon"] + label span:nth-child(3) {
+    bottom: 0;
+}
+
+input[id="menu_icon"]:checked + label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+input[id="menu_icon"]:checked + label span:nth-child(2) {
+    opacity: 0%;
+}
+input[id="menu_icon"]:checked + label span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+
+div[class="side_bar"] {
+    width: 300px;
+    height: 90%;
+    background: #ffffff url("../images/side_bg.png");
+    background-size: cover;
+    border-radius: 5px;
+    box-shadow:
+            -7px -7px 20px 0px rgba(255, 255, 255, 0),
+            -4px -4px 5px 0px rgba(255, 255, 255, 0),
+            7px 7px 20px 0px #0002,
+            4px 4px 5px 0px #0001;
+    position: fixed;
+    text-align: center;
+    vertical-align: center;
+    top: 5%;
+    left: -300px;
+    z-index: 1;
+    transition: all .35s;
+}
+input[id="menu_icon"]:checked + label + div {left:calc(1%);}
