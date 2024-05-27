@@ -1,0 +1,27 @@
+.cname {
+	width: 30%;
+	height: 25px;
+	float: left;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+.graph {
+	width: 70%;
+	height: 25px;
+	background: #ccc;
+	border-radius: 40px;
+	float: right;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+.graph span {
+	display: block;
+	padding: 0 10px;
+	height: 25px;
+	line-height: 25px;
+	text-align: right;
+	background: violet;
+	border-radius: 40px;
+	box-sizing: border-box;
+	color: #fff;
+}
