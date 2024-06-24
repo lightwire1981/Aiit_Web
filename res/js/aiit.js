@@ -2,11 +2,23 @@ let port;
 let textEncoder;
 let writableStreamClosed;
 let writer;
+let btnSendMsg;
+let btnTemp;
+let btnPrediction;
 
 $(document).ready(function () {
+    btnSendMsg = $("#btnSendMsg");
+    btnTemp = $("#btnTemp");
+    btnPrediction = $("#btnPrediction");
+
+    // btnSendMsg.attr('disabled', true);
+    // btnSendMsg.css('visibility', 'hidden');
+    // btnTemp.css('visibility', 'hidden');
+
     $("#btnGetSerial").on('click', serialTest);
-    $("#btnSendMsg").on('click', writeAiit);
-    $("#btnModelLoad").on('click', init);
+    btnSendMsg.on('click', writeAiit);
+    btnTemp.on('click', init);
+    btnPrediction.on('click', predict);
 });
 
 async function serialTest() {
@@ -20,6 +32,8 @@ async function serialTest() {
                 readyToWrite();
             });
             console.log(port);
+            btnSendMsg.css('visibility', 'visible');
+            // btnModelLoad.attr('disabled', false);
         }).catch((e) => {
             console.log(e);
         });
@@ -36,8 +50,8 @@ function readyToWrite() {
 }
 
 async function writeAiit() {
-
-    await writer.write("QAT01");
+    console.log("Connection Check");
+    await writer.write("camera:255,0,0");
 }
 
 function readURL(input) {
@@ -78,6 +92,8 @@ const URL = "https://teachablemachine.withgoogle.com/models/J-gOsDHsq/";
 let model, webcam, labelContainer, maxPredictions;
 let modelURL, metadataURL
 
+let colorSet = ["blue", "red", "green", "yellow"];
+
 // Load the image model and setup the webcam
 async function init() {
     let txtUrl = $("#txtModelUrl");
@@ -97,6 +113,8 @@ async function init() {
     model = await tmImage.load(modelURL, metadataURL);
     maxPredictions = model.getTotalClasses();
 
+    btnPrediction.css('visibility', 'visible');
+
     // Convenience function to setup a webcam
     const flip = true; // whether to flip the webcam
     webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
@@ -110,6 +128,12 @@ async function init() {
     for (let i = 0; i < maxPredictions; i++) { // and class labels
         labelContainer.appendChild(document.createElement("div"));
     }
+    for (let i = 0; i < maxPredictions; i++) { // and class labels
+        labelContainer.childNodes[i].append(document.createElement("div"),document.createElement("div"));
+    }
+    // for (let i = 0; i < maxPredictions; i++) { // and class labels
+    //     labelContainer.childNodes[i].appendChild(document.createElement("div"));
+    // }
 }
 
 async function loop() {
@@ -122,7 +146,49 @@ async function loop() {
 async function predict() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
+    let valueList = [];
     for (let i = 0; i < maxPredictions; i++) {
-        labelContainer.childNodes[i].innerHTML = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        labelContainer.childNodes[i].style.height = "50px";
+        labelContainer.childNodes[i].style.width = "300px";
+        labelContainer.childNodes[i].style.textAlign = "left";
+        labelContainer.childNodes[i].style.backgroundColor = "gray";
+        labelContainer.childNodes[i].childNodes[0].innerHTML = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        labelContainer.childNodes[i].childNodes[0].style.display = "inline-block";
+        labelContainer.childNodes[i].childNodes[1].style.height = "10px";
+        labelContainer.childNodes[i].childNodes[1].style.width = 200 * prediction[i].probability.toFixed(2)+"px";
+        labelContainer.childNodes[i].childNodes[1].style.backgroundColor = colorSet[i];
+        labelContainer.childNodes[i].childNodes[1].style.display = "inline-block";
+        valueList.push(prediction[i].probability.toFixed(2));
+
+        // labelContainer.childNodes[i].style.backgroundColor = colorSet[i];
     }
+    let numList = valueList.map(Number);
+    let maxValue = Math.max.apply(null, numList);
+    for (let i = 0; i < valueList.length; i++) {
+        if (numList[i]===maxValue) {
+            await sendSignal(i);
+        }
+    }
+}
+
+async function sendSignal(colorIndex) {
+    let msg = "";
+    switch (colorIndex) {
+        case 0:
+            msg = "camera:0,0,255";
+            break;
+        case 1:
+            msg = "camera:255,0,0";
+            break;
+        case 2:
+            msg = "camera:0,255,0";
+            break;
+        case 3:
+            msg = "camera:255,255,0";
+            break;
+        default:
+            break;
+    }
+    console.log(msg);
+    await writer.write(msg);
 }

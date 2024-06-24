@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <title>AIIT Web Service Page</title>
     <script src="res/js/aiit.js"></script>
-    <script src="res/js/predict.js"></script>
+<!--    <script src="res/js/predict.js"></script>-->
 </head>
 <body>
 <div class="DivMainContent">
-    <input type="button" class="CustomBtn BlueAnim" id="btnGetSerial" value="시리얼 포트 설정">
-    <input type="button" class="CustomBtn WhiteAnim" id="btnSendMsg" value="연결 확인">
-    <input type="button" class="CustomBtn WhiteAnim" id="btnTemp" value="테스트 버튼">
-    <div style="height: 50px"></div>
-    <div>Teachable Machine Image Model</div>
-    <input type="url" id="txtModelUrl">
-    <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="predict()">Predict</button>
+    <button class="CustomBtn BlueAnim" id="btnGetSerial">AIIT 연결 설정</button>
+    <button class="CustomBtn WhiteAnim" id="btnSendMsg"style="visibility: hidden">연결 확인</button>
+    <button class="CustomBtn WhiteAnim" id="btnTemp"style="visibility: hidden">테스트 버튼</button>
+        <div style="height: 50px"></div>
+    <div>
+        <h3>Teachable Machine Image Model</h3>
+        <input type="url" id="txtModelUrl">
+        <button type="button" onclick="init()">Model Initializing</button>
+        <button type="button" id="btnPrediction" class="CustomBtn BlueAnim" style="visibility: hidden">Start Prediction</button>
+    </div>
+
 
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <div class="file-upload">
+
+    <div style="width: 100%; text-align: right" >
+        <div id="label-container" style="margin-left: 10px; overflow-y: auto; float: right"></div>
+        <div id="webcam-container" style="float: right"></div>
+
+    </div>
+
+
+
+    <div class="file-upload" style="visibility: hidden">
         <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image
         </button>
 
@@ -37,8 +49,6 @@
             </div>
         </div>
     </div>
-    <div id="webcam-container"></div>
-    <div id="label-container"></div>
 </div>
 
 </body>
