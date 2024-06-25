@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Web-Cam Init</title>
+    <script src="res/js/camera.js"></script>
+</head>
+<body>
+<button class="CustomBtn BlueAnim" id="btnGetSerial">AIIT 연결 설정</button>
+<button class="CustomBtn WhiteAnim" id="btnSendMsg" style="visibility: hidden">연결 확인</button>
+<button class="CustomBtn WhiteAnim" id="btnTemp" style="visibility: hidden">테스트 버튼</button>
+<div style="height: 50px"></div>
+<div>
+    <h3>Teachable Machine Image Model</h3>
+    <input type="url" id="txtModelUrl" style="width: 40%" placeholder="Input h5 model URL">
+    <button type="button" id="btnModelLoad">Model Load</button>
+    <button type="button" id="btnPrediction" class="CustomBtn BlueAnim" style="visibility: hidden">Start Prediction
+    </button>
+</div>
+
+
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<div style="width: 100%; text-align: right">
+    <div id="label-container" style="margin-left: 10px; overflow-y: auto; float: right"></div>
+    <div id="webcam-container" style="float: right"></div>
+
+</div>
+
+
+<div class="file-upload" style="visibility: hidden">
+    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image
+    </button>
+
+    <div class="image-upload-wrap">
+        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*"/>
+        <div class="drag-text">
+            <h3>Drag and drop a file or select add Image</h3>
+        </div>
+    </div>
+    <div class="file-upload-content">
+        <img class="file-upload-image" id='face-image' src="#" alt="your image"/>
+        <div class="image-title-wrap">
+            <button type="button" onclick="removeUpload()" class="remove-image">Remove
+                <span class="image-title">Uploaded Image</span>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
